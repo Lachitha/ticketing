@@ -7,27 +7,30 @@ metadata:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
-class: nginx
+  ingressClassName: nginx
   rules:
     - host: ticket.dev
       http:
         paths:
-         - pathType: prefix
-          path: /api/users/?(.*)
+          - pathType: Prefix
+            path: /api/users/?(.*)
             backend:
               service:
                 name: auth-srv
                 port:
                   number: 80
-           - pathType: prefix
+          - pathType: Prefix
             path: /?(.*)
             backend:
               service:
                 name: client-srv
                 port:
                   number: 80
-         - pathType: prefix
-          path: "/"
+    - host: ticket.dev
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
             backend:
               service:
                 name: default-http-backend
