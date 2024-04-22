@@ -14,25 +14,15 @@ spec:
         paths:
           - pathType: Prefix
             path: /api/users/?(.*)
-            backend:
+            defaultBackend:
               service:
                 name: auth-srv
                 port:
                   number: 80
           - pathType: Prefix
             path: /?(.*)
-            backend:
+            defaultBackend:
               service:
                 name: client-srv
-                port:
-                  number: 80
-    - host: ticket.dev
-      http:
-        paths:
-          - pathType: Prefix
-            path: /
-            backend:
-              service:
-                name: default-http-backend
                 port:
                   number: 80
