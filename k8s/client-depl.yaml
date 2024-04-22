@@ -7,17 +7,17 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: client
+      app: nginx
   template:
     metadata:
       labels:
-        app: client
+        app: nginx
     spec:
       containers:
-        - name: client
+        - name: nginx
           image: lachisenarath576259/client
           ports:
-            - containerPort: 8080
+            - containerPort: 80
 
 ---
 apiVersion: v1
@@ -27,7 +27,7 @@ metadata:
   namespace: webapps
 spec:
   selector:
-    app: client
+    app: nginx
 
   ports:
     - protocol: TCP

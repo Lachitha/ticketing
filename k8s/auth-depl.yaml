@@ -7,14 +7,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: auth
+      app: nginx
   template:
     metadata:
       labels:
-        app: auth
+        app: nginx
     spec:
       containers:
-        - name: auth
+        - name: nginx
           image: lachisenarath576259/auth
           env:
             - name: JWT_KEY
@@ -30,23 +30,9 @@ metadata:
   namespace: webapps
 spec:
   selector:
-    app: auth
+    app: nginx
   ports:
-    - name: auth
+    - name: nginx
       protocol: TCP
       port: 80
       targetPort: 80
-
-  apiVersion: v1
-kind: Service
-metadata:
-  name: default-http-backend
-  namespace: webapps
-spec:
-  selector:
-    app: default-http-backend
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080  # Adjust targetPort if your backend is running on a different port
-
