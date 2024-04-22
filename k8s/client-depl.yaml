@@ -16,6 +16,8 @@ spec:
       containers:
         - name: client
           image: lachisenarath576259/client
+          ports:
+            - containerPort: 8080
 
 ---
 apiVersion: v1
@@ -26,9 +28,8 @@ metadata:
 spec:
   selector:
     app: client
-    type: LoadBalancer
+  type: LoadBalancer
   ports:
-    - name: client
-      protocol: TCP
+    - protocol: TCP
       port: 8080
       targetPort: 8080
