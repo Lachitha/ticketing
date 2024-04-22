@@ -28,7 +28,7 @@ metadata:
 spec:
   selector:
     app: client
-  type: LoadBalancer
+
   ports:
     - protocol: TCP
       port: 8080
