@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
-    - host: ticket.dev
+    - host: http://a2005029f7bfa4178bcd024865cf2025-4eabaecff2923d2f.elb.ap-southeast-1.amazonaws.com/
       http:
         paths:
           - path: /api/users/?(.*)
