@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: kavinduorg/client
+          image: lachisenarath576259/client
 
 ---
 apiVersion: v1
