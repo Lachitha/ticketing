@@ -7,14 +7,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx # Match the labels used in the Pod template
+      app: auth
   template:
     metadata:
       labels:
-        app: nginx # Labels for the Pod template
+        app: auth
     spec:
       containers:
-        - name: nginx
+        - name: auth
           image: lachisenarath576259/auth
           env:
             - name: JWT_KEY
@@ -22,3 +22,17 @@ spec:
                 secretKeyRef:
                   name: jwt-secret
                   key: JWT_Key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-srv
+  namespace: webapps
+spec:
+  selector:
+    app: auth
+  ports:
+    - name: auth
+      protocol: TCP
+      port: 80
+      targetPort: 80
