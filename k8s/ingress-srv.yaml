@@ -27,7 +27,7 @@ class: nginx
                 port:
                   number: 80
          - pathType: prefix
-          path: /?(.*)
+          path: "/"
             backend:
               service:
                 name: default-http-backend
