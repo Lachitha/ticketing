@@ -14,14 +14,14 @@ spec:
         paths:
           - pathType: Prefix
             path: /api/users/?(.*)
-            defaultBackend:
+            backend:
               service:
                 name: auth-srv
                 port:
                   number: 80
           - pathType: Prefix
             path: /?(.*)
-            defaultBackend:
+            backend:
               service:
                 name: client-srv
                 port:
