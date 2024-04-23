@@ -30,12 +30,3 @@ spec:
       protocol: TCP
       port: 27017
       targetPort: 27017
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: auth-mongo-sec
-  namespace: webapps
-type: Opaque
-data:
-  JWT_KEY: S2F2aW5kdQo=

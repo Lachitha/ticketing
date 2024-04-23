@@ -2,9 +2,10 @@ import mongoose from "mongoose";
 import { app } from "./app";
 
 const start = async () => {
-  if (!process.env.JWT_KEY) {
-    throw new Error("JWT_KEY must be defind");
-  }
+  // if (!process.env.JWT_KEY) {
+  //   throw new Error("JWT_KEY must be defind");
+  // }
+  
   try {
     await mongoose.connect("mongodb://auth-mongo-srv:27017/auth");
   } catch (err) {
