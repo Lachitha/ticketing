@@ -8,7 +8,6 @@ import { signoutRouter } from "./routes/signout";
 import { signupRouter } from "./routes/signup";
 import { errorHandler } from "./middleware/error-handler";
 import { NotFoundError } from "./errors/not-found-error";
-import cors from "cors";
 
 const app = express();
 app.set("trust proxy", true);
@@ -16,20 +15,14 @@ app.use(json());
 //cokkie only be add if the server get a request deom https
 app.use(
   cookieSession({
-    signed: false,
-    secure: false,
-    sameSite: "lax",
-   
+    httpOnly: true,
+    // secure: true,
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+    maxAge: 1000 * 60 * 60 * 24 * 7
     
-
+    
   })
 );
-
-app.use(cors());
-
-
-
-// app.set("trust proxy", 1);
 
 app.use(currentuserRouter);
 app.use(signinRouter);
