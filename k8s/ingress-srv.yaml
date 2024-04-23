@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: http://tickets.chathukaviduranga.com/
+    - host: tickets.chathukaviduranga.com
       http:
         paths:
           - pathType: Prefix
