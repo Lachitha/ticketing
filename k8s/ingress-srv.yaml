@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true" # This enables regex matching
     nginx.ingress.kubernetes.io/affinity: "cookie" # Enable cookie-based session affinity
     nginx.ingress.kubernetes.io/session-cookie-name: "session" # Set the name of the session cookie
-    nginx.ingress.kubernetes.io/session-cookie-path: "/; HttpOnly; SameSite=strict" # Set the cookie path and attributes
+
 spec:
   ingressClassName: nginx
   rules:
