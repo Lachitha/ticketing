@@ -46,7 +46,7 @@ console.log("userJwt",userJwt);
     req.session = {
       jwt: userJwt,
     };
-    res.status(200).send({ user: existinguser, token: userJwt });
+    res.status(200).send({ existinguser });
   }
 );
 
