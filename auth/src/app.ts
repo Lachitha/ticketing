@@ -13,16 +13,27 @@ const app = express();
 app.set("trust proxy", true);
 app.use(json());
 //cokkie only be add if the server get a request deom https
+// app.use(
+//   cookieSession({
+//     signed: false,
+//     // secure: true,
+//     sameSite: "none",
+//     httpOnly: true,
+    
+
+//   })
+// );
 app.use(
   cookieSession({
     signed: false,
-    secure: true,
+    // secure: true,
     sameSite: "none",
-    
-
+    httpOnly: true,
   })
 );
-app.set("trust proxy", 1);
+
+
+// app.set("trust proxy", 1);
 
 app.use(currentuserRouter);
 app.use(signinRouter);
