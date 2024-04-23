@@ -41,7 +41,7 @@ router.post(
       { id: existinguser.id, email: existinguser.email },
       process.env.JWT_KEY!
     );
-
+console.log("userJwt",userJwt);
     //store in session object
     req.session = {
       jwt: userJwt,
