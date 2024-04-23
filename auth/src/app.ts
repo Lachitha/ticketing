@@ -17,10 +17,12 @@ app.use(
   cookieSession({
     signed: false,
     secure: true,
-    sameSite: "lax",
+    sameSite: "none",
+    
 
   })
 );
+app.set("trust proxy", 1);
 
 app.use(currentuserRouter);
 app.use(signinRouter);
