@@ -33,7 +33,7 @@ router.post(
     //Generate json web token
     const userJwt = jwt.sign(
       { id: user.id, email: user.email },
-      'Kavindu'!
+      process.env.JWT_KEY!
     );
 
     //store in session object
