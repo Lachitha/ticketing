@@ -6,6 +6,8 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: "true" # This enables regex matching
+    service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
+    service.beta.kubernetes.io/do-loadbalancer-hostname: "tickets.chathukaviduranga.com"
 spec:
   ingressClassName: nginx
   rules:

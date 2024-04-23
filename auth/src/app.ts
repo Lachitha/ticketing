@@ -15,10 +15,8 @@ app.use(json());
 //cokkie only be add if the server get a request deom https
 app.use(
   cookieSession({
-    httpOnly: true,
-    // secure: true,
-    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
-    maxAge: 1000 * 60 * 60 * 24 * 7
+    signed: false,
+    secure: false,
     
     
   })
