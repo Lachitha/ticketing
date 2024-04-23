@@ -27,6 +27,7 @@ router.post(
     }
 
     const user = User.build({ email, password });
+    console.log("JWT_KEY value:", process.env.JWT_KEY);
 
     await user.save();
 
@@ -35,6 +36,7 @@ router.post(
       { id: user.id, email: user.email },
       process.env.JWT_KEY!
     );
+    console.log("userJwt", userJwt);
 
     //store in session object
     req.session = {
